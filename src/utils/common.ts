@@ -1,13 +1,12 @@
-
 export type HTTPMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 export function getParams(method: HTTPMethod, token: string) {
     return {
         method,
         headers: {
-            "X-Shopify-Access-Token": token,
-            "Content-Type": "application/json",
+            'X-Shopify-Access-Token': token,
+            'Content-Type': 'application/json',
         },
-    }
+    };
 }
 
 export function getAssetUrl(domain: string, apiVersion: string, theme: string | number, key: string | null) {

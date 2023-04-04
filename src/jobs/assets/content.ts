@@ -2,5 +2,6 @@ const value = `{%- liquid\n  comment\n    Translations\n  endcomment\n\n  assign
 const key = `sections/featured-collection.liquid`;
 
 export default {
-    key, value
+    key,
+    value,
 };

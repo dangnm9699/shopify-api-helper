@@ -1,25 +1,25 @@
-
-import * as minimist from "minimist";
+import * as minimist from 'minimist';
 
 import assetApi from './jobs/assets';
 import version from './version';
-import help from "./help";
+import help from './help';
 
 type ApiFunction = (...args: any[]) => any;
 
 interface Api {
-    [key: string]: ApiFunction
+    [key: string]: ApiFunction;
 }
 
 const commands: Api = Object.freeze({
-    help, version,
+    help,
+    version,
 
     asset: assetApi,
 });
 
 const args = minimist(process.argv.slice(2));
 
-let command = args._[0] || "help";
+let command = args._[0] || 'help';
 
 if (args['version'] || args['v']) {
     command = 'version';
@@ -29,7 +29,7 @@ if (args['help'] || args['h']) {
     command = 'help';
 }
 
-console.log(command, process.argv);
+console.log(args);
 
 if (command in commands) {
     const func = commands[command];
